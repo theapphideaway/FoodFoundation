@@ -11,4 +11,5 @@
         android:layout_marginRight="16dp"
         app:layoutManager="LinearLayoutManager"
         tools:context=".Fragments.ResultFragment"
-        tools:listitem="@layout/fragment_result"/>
+        tools:listitem="@layout/fragment_result"
+        android:background="@android:color/background_light"/>

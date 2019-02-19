@@ -44,6 +44,7 @@ class ResultAdapter(
 
     fun goToArticle(url: String){
         var intent = Intent(context, RecipeWebActivity::class.java)
+        intent.putExtra("Url", url)
         startActivity(context, intent, null)
     }
 
