@@ -9,10 +9,9 @@ import android.view.View
 import android.view.ViewGroup
 import com.theapphideaway.foodfoundation.Models.RecipeResponse
 import com.theapphideaway.foodfoundation.R
+import com.theapphideaway.foodfoundation.Adapters.ResultAdapter
 
-import com.theapphideaway.foodfoundation.Services.RecipeService
 import kotlinx.android.synthetic.main.fragment_result_list.view.*
-import kotlinx.coroutines.*
 
 /**
  * A fragment representing a list of Items.
@@ -21,7 +20,7 @@ import kotlinx.coroutines.*
  */
 class ResultFragment : Fragment() {
 
-    private var featuredAdapter: ResultAdapter? = null
+    private var searchedRecipeAdapter: ResultAdapter? = null
     private var layoutManager: RecyclerView.LayoutManager? = null
 
     override fun onCreateView(
@@ -35,11 +34,10 @@ class ResultFragment : Fragment() {
 
 
             layoutManager = LinearLayoutManager(rootView.context)
-            featuredAdapter = ResultAdapter(recipeResponse, rootView.context)
+            searchedRecipeAdapter = ResultAdapter(recipeResponse, rootView.context)
 
-            rootView.search_recipe_recycler_view.adapter = featuredAdapter
+            rootView.search_recipe_recycler_view.adapter = searchedRecipeAdapter
             rootView.search_recipe_recycler_view.layoutManager = layoutManager
-
 
         return rootView
     }

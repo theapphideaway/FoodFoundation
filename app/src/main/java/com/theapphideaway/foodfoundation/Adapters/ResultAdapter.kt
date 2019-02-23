@@ -1,4 +1,4 @@
-package com.theapphideaway.foodfoundation.Fragments
+package com.theapphideaway.foodfoundation.Adapters
 
 import android.content.Context
 import android.content.Intent
@@ -10,10 +10,10 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import com.squareup.picasso.Picasso
-import com.theapphideaway.foodfoundation.R
 
 
 import com.theapphideaway.foodfoundation.Models.RecipeResponse
+import com.theapphideaway.foodfoundation.R
 import com.theapphideaway.foodfoundation.RecipeWebActivity
 
 import kotlinx.android.synthetic.main.fragment_result.view.*

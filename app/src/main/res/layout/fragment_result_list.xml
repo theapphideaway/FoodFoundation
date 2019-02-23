@@ -7,9 +7,7 @@
         android:name="com.theapphideaway.foodfoundation.Fragments.ResultFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
         app:layoutManager="LinearLayoutManager"
         tools:context=".Fragments.ResultFragment"
         tools:listitem="@layout/fragment_result"
-        android:background="@android:color/background_light"/>
+        android:background="@android:color/background_light" android:paddingLeft="16dp" android:paddingRight="16dp"/>
