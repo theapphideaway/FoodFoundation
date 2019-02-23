@@ -1,5 +1,6 @@
 package com.theapphideaway.foodfoundation.Fragments
 
+import android.content.Intent
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v7.widget.LinearLayoutManager
@@ -8,6 +9,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.theapphideaway.foodfoundation.Adapters.SavedRecipesAdapter
+import com.theapphideaway.foodfoundation.AddRecipeActivity
 import com.theapphideaway.foodfoundation.Database.DatabaseHelper
 import com.theapphideaway.foodfoundation.Models.CustomRecipe
 
@@ -35,19 +37,32 @@ class SavedRecipeFragment : Fragment() {
         savedRecipeAdapter = SavedRecipesAdapter(recipeList!!, rootView.context)
         rootView.saved_recipe_list.adapter = savedRecipeAdapter
         rootView.saved_recipe_list.layoutManager = layoutManager
+
         loadQuery("%")
+        savedRecipeAdapter!!.notifyDataSetChanged()
 
-        rootView.fab.setOnClickListener {
-            val manager = activity!!.supportFragmentManager
-            manager.findFragmentById(R.id.fragment)
-            var transaction = manager.beginTransaction()
 
-            val addRecipe = AddRecipeFragment()
-            transaction.attach(ResultFragment())
-            transaction.replace(R.id.fragment, addRecipe).commit()
+        rootView.fab_saved_recipe.setOnClickListener {
+//            val manager = activity!!.supportFragmentManager
+//            manager.findFragmentById(R.id.fragment)
+//            var transaction = manager.beginTransaction()
+//
+//            val addRecipe = AddRecipeFragment()
+//            transaction.attach(ResultFragment())
+//            transaction.replace(R.id.fragment, addRecipe).commit()
+
+            var intent = Intent(rootView.context, AddRecipeActivity::class.java)
+            startActivity(intent)
+
         }
 
         return rootView
+    }
+
+    override fun onResume() {
+        super.onResume()
+        loadQuery("%")
+        savedRecipeAdapter!!.notifyDataSetChanged()
     }
 
     fun loadQuery(title:String){

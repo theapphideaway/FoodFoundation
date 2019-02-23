@@ -12,6 +12,8 @@
             android:supportsRtl="true"
             android:theme="@style/AppTheme"
             android:usesCleartextTraffic="true">
+        <activity android:name=".AddRecipeActivity">
+        </activity>
         <activity android:name=".RecipeWebActivity">
         </activity>
         <activity
