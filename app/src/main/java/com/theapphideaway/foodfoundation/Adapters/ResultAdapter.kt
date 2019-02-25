@@ -30,21 +30,23 @@ class ResultAdapter(
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val item = mRecipeResponse.results[position]
+        val item = mRecipeResponse.results!![position]
         holder.mTitle.text = item.title
 
 
         if(item.thumbnail != "") Picasso.get().load(item.thumbnail).into(holder.mThumbnail)
 
-        holder.itemView.setOnClickListener { goToArticle(item.href) }
+        holder.itemView.setOnClickListener { goToArticle(item.href, item.title, item.ingredients) }
 
     }
 
-    override fun getItemCount(): Int = mRecipeResponse.results.size
+    override fun getItemCount(): Int = mRecipeResponse.results!!.size
 
-    fun goToArticle(url: String){
+    fun goToArticle(url: String, title: String, ingredients: String){
         var intent = Intent(context, RecipeWebActivity::class.java)
         intent.putExtra("Url", url)
+        intent.putExtra("title", title)
+        intent.putExtra("ingredients", ingredients)
         startActivity(context, intent, null)
     }
 

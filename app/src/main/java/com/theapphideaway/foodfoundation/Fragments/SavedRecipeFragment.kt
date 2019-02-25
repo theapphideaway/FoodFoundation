@@ -42,6 +42,7 @@ class SavedRecipeFragment : Fragment() {
         savedRecipeAdapter!!.notifyDataSetChanged()
 
 
+
         rootView.fab_saved_recipe.setOnClickListener {
 //            val manager = activity!!.supportFragmentManager
 //            manager.findFragmentById(R.id.fragment)
