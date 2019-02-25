@@ -97,7 +97,7 @@ class RecipeWebActivity : AppCompatActivity() {
             if (ID > 0) {
                 Toast.makeText(context, "Recipe is Added", Toast.LENGTH_SHORT).show()
             } else {
-                Toast.makeText(context, "Error: Couldn't Add", Toast.LENGTH_SHORT).show()
+                Toast.makeText(context, "Error: Couldn't Add Recipe", Toast.LENGTH_SHORT).show()
             }
         } else{
 

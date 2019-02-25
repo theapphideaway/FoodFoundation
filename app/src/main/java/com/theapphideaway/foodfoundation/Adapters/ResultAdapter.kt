@@ -30,7 +30,7 @@ class ResultAdapter(
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val item = mRecipeResponse.results!![position]
+        val item = mRecipeResponse.results[position]
         holder.mTitle.text = item.title
 
 
@@ -40,7 +40,7 @@ class ResultAdapter(
 
     }
 
-    override fun getItemCount(): Int = mRecipeResponse.results!!.size
+    override fun getItemCount(): Int = mRecipeResponse.results.size
 
     fun goToArticle(url: String, title: String, ingredients: String){
         var intent = Intent(context, RecipeWebActivity::class.java)
