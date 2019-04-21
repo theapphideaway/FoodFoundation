@@ -10,16 +10,9 @@ import android.view.ViewGroup
 import com.theapphideaway.foodfoundation.Models.RecipeResponse
 import com.theapphideaway.foodfoundation.R
 import com.theapphideaway.foodfoundation.Adapters.ResultAdapter
-
 import kotlinx.android.synthetic.main.fragment_result_list.view.*
 
-/**
- * A fragment representing a list of Items.
- * Activities containing this fragment MUST implement the
- * [ResultFragment.OnListFragmentInteractionListener] interface.
- */
-class ResultFragment : Fragment() {
-
+    class ResultFragment : Fragment()  {
     private var searchedRecipeAdapter: ResultAdapter? = null
     private var layoutManager: RecyclerView.LayoutManager? = null
 
@@ -32,7 +25,6 @@ class ResultFragment : Fragment() {
         val bundle = arguments
         val recipeResponse = bundle!!.getSerializable("results") as RecipeResponse
 
-
             layoutManager = LinearLayoutManager(rootView.context)
             searchedRecipeAdapter = ResultAdapter(recipeResponse, rootView.context)
 
@@ -41,6 +33,4 @@ class ResultFragment : Fragment() {
 
         return rootView
     }
-
-
 }

@@ -8,12 +8,14 @@ import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import com.theapphideaway.foodfoundation.Adapters.SavedRecipesAdapter
 import com.theapphideaway.foodfoundation.AddRecipeActivity
 import com.theapphideaway.foodfoundation.Database.DatabaseHelper
 import com.theapphideaway.foodfoundation.Models.CustomRecipe
 
 import com.theapphideaway.foodfoundation.R
+import kotlinx.android.synthetic.main.content_saved_recipe.*
 import kotlinx.android.synthetic.main.content_saved_recipe.view.*
 import kotlinx.android.synthetic.main.fragment_saved_recipe.view.*
 
@@ -32,6 +34,9 @@ class SavedRecipeFragment : Fragment() {
         // Inflate the layout for this fragment
         var rootView = inflater.inflate(R.layout.fragment_saved_recipe, container, false)
 
+        var savedRecipeList = rootView.findViewById<RecyclerView>(R.id.saved_recipe_list)
+        var emptyView = rootView.findViewById<TextView>(R.id.empty_view)
+
         recipeList = ArrayList()
         layoutManager = LinearLayoutManager(rootView.context)
         savedRecipeAdapter = SavedRecipesAdapter(recipeList!!, rootView.context)
@@ -41,22 +46,12 @@ class SavedRecipeFragment : Fragment() {
         loadQuery("%")
         savedRecipeAdapter!!.notifyDataSetChanged()
 
-
-
         rootView.fab_saved_recipe.setOnClickListener {
-//            val manager = activity!!.supportFragmentManager
-//            manager.findFragmentById(R.id.fragment)
-//            var transaction = manager.beginTransaction()
-//
-//            val addRecipe = AddRecipeFragment()
-//            transaction.attach(ResultFragment())
-//            transaction.replace(R.id.fragment, addRecipe).commit()
 
             var intent = Intent(rootView.context, AddRecipeActivity::class.java)
             startActivity(intent)
 
         }
-
         return rootView
     }
 
